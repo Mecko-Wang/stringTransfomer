@@ -10,23 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+	
     m_transform = new charTransform();
-
-    //send data to transform
-    connect(this, SIGNAL(sendBigToSmallSignal(QString)),m_transform, SLOT(applicationSmallToBig(QString)));
-    connect(this, SIGNAL(sendSmallToBigSignal(QString)),m_transform, SLOT(applicationSmallToBig(QString)));
-    connect(this, SIGNAL(sendBigToSmallSignal(QString)),m_transform, SLOT(applicationSmallToBig(QString)));
-
-    //send data to UI
-    connect(m_transform,&charTransform::sendBigDataToUI, [&](QString sData){
-        ui->output_string->setText(sData);
-    });
-    connect(m_transform,&charTransform::sendSmallDataToUI,[&](QString sData){
-        ui->output_string->setText(sData);
-    });
-    connect(m_transform,&charTransform::sendDeleteSpaceDataToUI, [&](QString sData){
-        ui->output_string->setText(sData);
-    });
 }
 
 MainWindow::~MainWindow()
@@ -71,10 +56,9 @@ void MainWindow::on_delete_transformer_clicked()
     tc.select(QTextCursor::BlockUnderCursor);
     tc.movePosition(QTextCursor::EndOfLine,QTextCursor::KeepAnchor);
     QString selectTransfor = tc.selectedText();
-qDebug()<<"selectTransfor"<<selectTransfor<<endl;
+	
     for (QMap<QString, int>::iterator it=transformMap.begin();  it!=transformMap.end(); )
      {
-qDebug()<<"it.key()"<<it.key()<<endl;
         if (it.key() == selectTransfor)
          {
             qDebug()<<"11111"<<endl;

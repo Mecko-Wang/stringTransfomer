@@ -5,20 +5,20 @@ charTransform::charTransform(QObject *parent) : QObject(parent)
 
 }
 
-void charTransform::applicationSmallToBig(QString sData)
+QString charTransform::applicationSmallToBig(QString& sData)
 {
      sData = sData.toUpper();
 
-     emit sendBigDataToUI(sData);
+     return sData;
 }
 
-void charTransform::applicationBigToSmall(QString sData)
+QString charTransform::applicationBigToSmall(QString& sData)
 {
      sData = sData.toLower();
-     emit sendSmallDataToUI(sData);
+     return sData;
 }
 
-void charTransform::applicationDeleteSpace(QString sData)
+QString charTransform::applicationDeleteSpace(QString& sData)
 {
     QString outStr;
     QByteArray ba = sData.toLatin1();
@@ -35,7 +35,7 @@ void charTransform::applicationDeleteSpace(QString sData)
            continue;
        }
     }
-    emit sendDeleteSpaceDataToUI(sData);
+    return outStr;
 }
 
 

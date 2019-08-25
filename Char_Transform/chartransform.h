@@ -9,16 +9,10 @@ class charTransform : public QObject
     Q_OBJECT
 public:
     explicit charTransform(QObject *parent = 0);
-
-public slots:
-        void applicationSmallToBig(QString sData);
-        void applicationBigToSmall(QString sData);
-        void applicationDeleteSpace(QString sData);
-signals:
-        void sendBigDataToUI(QString sData);
-        void sendSmallDataToUI(QString sData);
-        void sendDeleteSpaceDataToUI(QString sData);
-
+	
+	QString applicationSmallToBig(QString& sData);
+    QString applicationBigToSmall(QString& sData);
+    QString applicationDeleteSpace(QString& sData);
 
 public slots:
 };
