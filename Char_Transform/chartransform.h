@@ -1,8 +1,9 @@
-#ifndef CHARTRANSFORM_H
+﻿#ifndef CHARTRANSFORM_H
 #define CHARTRANSFORM_H
 
 #include <QObject>
 #include <QList>
+#define ASCALL_OF_SPACE  32
 
 class charTransform : public QObject
 {
@@ -10,9 +11,9 @@ class charTransform : public QObject
 public:
     explicit charTransform(QObject *parent = 0);
 	
-	QString applicationSmallToBig(QString& sData);
-    QString applicationBigToSmall(QString& sData);
-    QString applicationDeleteSpace(QString& sData);
+    QString strLowerToUpper(QString& sData);
+    QString strUpperToLower(QString& sData);
+    QString strDeleteSpace(QString& sData);
 
 public slots:
 };

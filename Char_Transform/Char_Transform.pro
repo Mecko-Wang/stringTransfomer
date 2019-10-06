@@ -5,6 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += testlib
+QT       += core testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,9 +27,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    chartransform.cpp
+    chartransform.cpp \
+    TestGui.cpp \
+    TestString.cpp
 
 HEADERS  += mainwindow.h \
-    chartransform.h
+    chartransform.h \
+    TestGui.h \
+    TestString.h
 
 FORMS    += mainwindow.ui
